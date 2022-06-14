@@ -8,7 +8,6 @@ const ReviewsList = () => {
 
   useEffect(() => {
     getReviews().then((reviews) => {
-      console.log(reviews);
       setReviews(reviews);
       setIsLoading(false);
     });
@@ -18,7 +17,7 @@ const ReviewsList = () => {
 
   return (
     <section className="rev-section">
-      <h2>Current Reviews</h2>
+      <h2>Reviews</h2>
       <ul className="rev-list">
         {reviews.map((review) => {
           return <ReviewCard key={review.review_id} review={review} />;
