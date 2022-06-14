@@ -11,3 +11,11 @@ export const getReviews = (category) => {
       return data.reviews;
     });
 };
+
+export const getCategories = (category) => {
+  return ncGamesApi
+    .get("/categories", { params: { category } })
+    .then(({ data }) => {
+      return data.categories;
+    });
+};

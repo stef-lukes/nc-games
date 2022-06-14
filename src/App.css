@@ -5,15 +5,56 @@
 .App {
   text-align: center;
 }
-
+.main-nav {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin: auto;
+}
+.link {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+.dropdown-hover {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: red;
+  width: 140px;
+  overflow: auto;
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+  left: -4vw;
+  top: 25px;
+}
+.dropdown-hover:hover .dropdown-content {
+  display: block;
+}
+.dropdown-content .drop-link {
+  display: block;
+  color: white;
+  padding: 5px;
+  text-decoration: none;
+}
+.dropdown-content .drop-link:hover {
+  color: #211f44;
+  background-color: white;
+}
 header {
   width: 100%;
-  background: red;
   padding: 4vw 0;
 }
-
+#logo {
+  width: 50%;
+}
 .title-heading {
-  color: white;
+  display: none;
 }
 
 #welcome {
