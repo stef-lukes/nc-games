@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getCategories } from "../utils/api";
 import { useParams } from "react-router-dom";
 
