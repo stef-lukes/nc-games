@@ -1,11 +1,7 @@
 import ReviewsList from "../components/ReviewsList";
 
 const Reviews = () => {
-  return (
-    <>
-      <ReviewsList />
-    </>
-  );
+  return <ReviewsList />;
 };
 
 export default Reviews;

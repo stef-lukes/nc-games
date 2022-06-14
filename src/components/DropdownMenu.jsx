@@ -7,10 +7,11 @@ const DropdownMenu = () => {
   const { category } = useParams();
   const [categories, setCategories] = useState([]);
 
-  getCategories(category).then((categories) => {
-    console.log(categories);
-    setCategories(categories);
-  });
+  useEffect(() => {
+    getCategories(category).then((categories) => {
+      setCategories(categories);
+    });
+  }, [category]);
 
   return (
     <div className="dropdown-hover">
