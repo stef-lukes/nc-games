@@ -1,7 +1,18 @@
+@font-face {
+  font-family: "OCR A Extended";
+  src: url("./assets/OCRAExtended.woff2") format("woff2"),
+    url("./assets/OCRAExtended.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 * {
   padding: 0;
   margin: 0;
+  font-family: "OCR A Extended";
 }
+
 .App {
   text-align: center;
 }
@@ -9,42 +20,59 @@
   position: relative;
   z-index: 1;
   display: flex;
-  justify-content: space-between;
-  width: 50%;
+  justify-content: center;
+  width: 100%;
   margin: auto;
 }
 .link {
   text-decoration: none;
-  color: black;
+  color: #211f44;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin: 0 15px;
 }
+
 .dropdown-hover {
   display: inline-block;
   position: relative;
   cursor: pointer;
+  padding-bottom: 20px;
+  transition: all 0.2s ease-in-out;
+}
+.link:hover,
+.dropdown-hover:hover {
+  color: #ef3030;
+  text-decoration: underline;
+  text-decoration-color: #211f44;
 }
 .dropdown-content {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
   position: absolute;
-  background-color: red;
-  width: 140px;
+  background-color: #211f44;
+  width: 190px;
   overflow: auto;
   box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
   left: -4vw;
-  top: 25px;
+  top: 50px;
+  padding: 5px 0;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
 }
 .dropdown-hover:hover .dropdown-content {
-  display: block;
+  visibility: visible;
+  opacity: 1;
+  top: 30px;
 }
-.dropdown-content .drop-link {
+.drop-link {
   display: block;
   color: white;
-  padding: 5px;
-  text-decoration: none;
+  padding: 7px 5px;
+  text-decoration: none !important;
 }
 .dropdown-content .drop-link:hover {
-  color: #211f44;
-  background-color: white;
+  color: white;
+  background-color: #ef3030;
 }
 header {
   width: 100%;
@@ -67,13 +95,23 @@ header {
 }
 
 .rev-section {
-  padding: 5vw;
+  padding: 0 5vw;
   width: 100%;
   box-sizing: border-box;
 }
 
-.rev-section h2 {
-  margin-bottom: 2vw;
+.rev-list-heading {
+  margin: 2vw auto;
+  text-transform: capitalize;
+  color: #211f44;
+  font-size: 4.5vw;
+  /*! background-color: red; */
+  /*! width: 50%; */
+  padding: 5px;
+  border-radius: 10px;
+  color: red;
+  text-decoration: underline;
+  text-decoration-color: #211f44;
 }
 
 .rev-list {
@@ -83,14 +121,29 @@ header {
 
 .rev-card {
   width: 100%;
-  margin: 30px 0;
+  margin: 5vw 0;
   position: relative;
-  padding: 20px 0;
-  background: #221e5085;
-  color: #fffb00;
+  padding: 20px 10px;
+  background: #161332a0;
+  color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  text-shadow: 2px 2px 1px rgba(12, 12, 41, 0.523);
+  transition: all 0.3s ease-in-out;
+  height: 32vw;
+  box-sizing: border-box;
 }
 
-.rev-card img {
+.rev-card:hover {
+  background-color: #ef3030ac;
+  box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.3);
+}
+
+.rev-card:hover > .rev-card-img {
+  transform: scale(1.5);
+}
+
+.rev-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -98,4 +151,74 @@ header {
   top: 0;
   left: 0;
   z-index: -1;
+  transition: all 0.3s ease-in-out;
+}
+.rev-card h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 3.75vw;
+  margin-top: 8.5vw;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+.rev-card h4,
+.rev-card h5 {
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+.rev-card-user {
+  margin: 10px auto;
+}
+.rev-card-user img {
+  width: 40px;
+}
+.bottom-right {
+  display: flex;
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+}
+.rev-card-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+.rev-card-icon img {
+  width: 25px;
+  margin-right: 5px;
+}
+.tooltiptext {
+  visibility: hidden;
+  opacity: 0;
+  bottom: 30px;
+  left: 42%;
+  background-color: #211f44;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+.ttt-user {
+  left: 8% !important;
+}
+.ttt-comments {
+  left: 61% !important;
+}
+.tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #211f44 transparent transparent transparent;
 }

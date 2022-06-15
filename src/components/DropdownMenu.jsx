@@ -15,7 +15,7 @@ const DropdownMenu = () => {
 
   return (
     <div className="dropdown-hover">
-      <p>Categories +</p>
+      <p>by category</p>
       <div className="dropdown-content">
         {categories.map((category) => {
           return (

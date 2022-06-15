@@ -19,7 +19,9 @@ const ReviewsList = () => {
 
   return (
     <section className="rev-section">
-      <h2>Reviews</h2>
+      <h2 className="rev-list-heading">
+        {category ? `${category} Games` : "All Reviews"}
+      </h2>
       <ul className="rev-list">
         {reviews.map((review) => {
           return <ReviewCard key={review.review_id} review={review} />;
