@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import Reviews from "./pages/Reviews";
 import Navbar from "./components/Navbar";
+import SingleReview from "./pages/SingleReview";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/categories/:category" element={<Reviews />} />
+            <Route path="/reviews/:review_id" element={<SingleReview />} />
           </Routes>
         </div>
       </BrowserRouter>
