@@ -15,6 +15,14 @@ const Comments = ({ review_id }) => {
 
   if (isLoading) return <p className="loading">Loading...</p>;
 
+  if (comments.length === 0)
+    return (
+      <>
+        <h3>Comments:</h3>
+        <p>This post currently has no comments</p>
+      </>
+    );
+
   return (
     <>
       <h3>Comments:</h3>
