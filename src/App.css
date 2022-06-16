@@ -1,3 +1,5 @@
+/* GLOBAL============================== */
+
 @font-face {
   font-family: "OCR A Extended";
   src: url("./assets/OCRAExtended.woff2") format("woff2"),
@@ -11,11 +13,19 @@
   padding: 0;
   margin: 0;
   font-family: "OCR A Extended";
+  box-sizing: border-box;
 }
 
 .App {
   text-align: center;
 }
+
+.w20 {
+  width: 20px !important;
+}
+
+/* NAV ============================== */
+
 .main-nav {
   position: relative;
   z-index: 1;
@@ -74,6 +84,9 @@
   color: white;
   background-color: #ef3030;
 }
+
+/* HEADER ============================== */
+
 header {
   width: 100%;
   padding: 4vw 0;
@@ -85,6 +98,8 @@ header {
   display: none;
 }
 
+/* WELCOME ============================== */
+
 #welcome {
   padding: 5vw;
 }
@@ -93,6 +108,8 @@ header {
 .cta {
   margin-bottom: 5vw;
 }
+
+/* REVIEWS LIST ============================== */
 
 .rev-section {
   padding: 0 5vw;
@@ -120,8 +137,9 @@ header {
 }
 
 .rev-card {
+  display: inline-block;
   width: 100%;
-  margin: 5vw 0;
+  margin: 2vw 0;
   position: relative;
   padding: 20px 10px;
   background: #161332a0;
@@ -131,6 +149,7 @@ header {
   text-shadow: 2px 2px 1px rgba(12, 12, 41, 0.523);
   transition: all 0.3s ease-in-out;
   height: 32vw;
+  text-decoration: none;
   box-sizing: border-box;
 }
 
@@ -178,6 +197,12 @@ header {
   bottom: 5px;
   right: 0;
 }
+.bottom-left {
+  display: flex;
+  position: absolute;
+  bottom: 8px;
+  left: 20px;
+}
 .rev-card-icon {
   display: flex;
   align-items: center;
@@ -186,6 +211,9 @@ header {
 .rev-card-icon img {
   width: 25px;
   margin-right: 5px;
+}
+.dateIcon {
+  width: 15px !important;
 }
 .tooltiptext {
   visibility: hidden;
@@ -221,4 +249,96 @@ header {
   border-width: 5px;
   border-style: solid;
   border-color: #211f44 transparent transparent transparent;
+}
+
+/* SINGLE REVIEW ============================== */
+
+.single-rev {
+  width: 90%;
+  padding: 4vw 4vw 9vw 4vw;
+  background: #f0f0f0;
+  margin: auto;
+  border-radius: 20px;
+  position: relative;
+}
+.single-rev-body {
+  width: 100%;
+  text-align: left;
+}
+.single-rev-body img {
+  width: 100%;
+  border-radius: 20px;
+  height: 50vw;
+  object-fit: cover;
+}
+.single-rev-body h2 {
+  margin: 2vw 0;
+  background-color: #ffb2b2;
+  color: #211f44;
+  padding: 8px;
+  border-radius: 10px;
+  font-size: 18px;
+  /*! display: inline-block; */
+  /*! font-family: 'Roboto'; */
+  /*! font-weight: 900; */
+  /*! letter-spacing: -2px; */
+}
+.single-rev-body h3 {
+  margin-right: 20px;
+  /*! background: #211f44; */
+  color: #f77;
+  padding: 5px 0;
+  border-radius: 10px;
+  font-size: 16px;
+  display: inline-block;
+  letter-spacing: -1px;
+}
+.single-rev-body span {
+  color: #211f44;
+}
+.user-and-date {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: gainsboro;
+  padding: 7px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.single-rev-body p {
+  font-weight: 400;
+  margin: 3vw 0;
+  line-height: 1.25;
+  color: #211f44;
+  letter-spacing: -1px;
+}
+.single-rev-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background: #ffb2b2;
+  padding: 1vw 0;
+  border-radius: 10px;
+  /*! color: white; */
+  width: 170px;
+  justify-content: center;
+  position: absolute;
+  left: 4vw;
+}
+.keyIcon-value {
+  /*! width: 170px; */
+  display: flex;
+  align-items: center;
+  margin: 0 20px 0 0;
+}
+.keyIcon-value img {
+  width: 25px;
+  margin-right: 10px;
+  height: auto;
+  border-radius: 0;
+}
+.keyIcon-value h4 {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 14px;
 }
