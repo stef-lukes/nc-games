@@ -320,7 +320,7 @@ header {
   padding: 1vw 0;
   border-radius: 10px;
   /*! color: white; */
-  width: 170px;
+  width: 195px;
   justify-content: center;
   position: absolute;
   left: 4vw;
@@ -341,4 +341,27 @@ header {
   font-family: "Roboto";
   font-weight: 400;
   font-size: 14px;
+}
+
+/* VOTE ============================== */
+
+.vote-btns {
+  display: flex;
+  justify-content: space-between;
+}
+.vote-btns button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 20px;
+  margin-right: 0px;
+}
+.vote-btns button img {
+  width: 15px;
+  display: block;
+  margin: auto;
+}
+
+.vote-btns > img:nth-child(3) {
+  margin-left: 10px;
 }

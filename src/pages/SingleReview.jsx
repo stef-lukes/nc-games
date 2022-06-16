@@ -5,7 +5,6 @@ import IncVotes from "../components/IncVotes";
 
 import userIcon from "../assets/profile-icon.svg";
 import commentIcon from "../assets/comments-icon.svg";
-import votesIcon from "../assets/vote-icon.svg";
 import dateIcon from "../assets/date-icon.svg";
 
 const SingleReview = () => {
@@ -64,12 +63,7 @@ const SingleReview = () => {
       </section>
       <section className="single-rev-info">
         <div className="keyIcon-value">
-          <IncVotes
-            singleReview="singleReview"
-            setSingleReview={setSingleReview}
-          />
-          <img src={votesIcon} alt="" />
-          <h4>{singleReview.votes}</h4>
+          <IncVotes singleReview={singleReview} />
         </div>
         <div className="keyIcon-value">
           <img src={commentIcon} alt="" />
