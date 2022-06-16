@@ -12,7 +12,7 @@ const IncVotes = ({ singleReview }) => {
   const upVote = (event) => {
     setVoteChange((currVotes) => currVotes + 1);
     incVotes(singleReview.review_id, 1).catch((err) => {
-      setVoteChange((currVotes) => currVotes + 1);
+      setVoteChange((currVotes) => currVotes - 1);
       setErr("Something went wrong, please try again.");
     });
     event.currentTarget.disabled = true;
