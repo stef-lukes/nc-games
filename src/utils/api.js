@@ -25,3 +25,11 @@ export const getReviewById = (review_id) => {
     return data.review;
   });
 };
+
+export const incVotes = (review_id, inc_votes) => {
+  return ncGamesApi
+    .patch(`/reviews/${review_id}`, { inc_votes })
+    .then(({ data }) => {
+      return data;
+    });
+};
