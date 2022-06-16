@@ -33,3 +33,9 @@ export const incVotes = (review_id, inc_votes) => {
       return data;
     });
 };
+
+export const getReviewComments = (review_id) => {
+  return ncGamesApi.get(`/reviews/${review_id}/comments`).then(({ data }) => {
+    return data;
+  });
+};
