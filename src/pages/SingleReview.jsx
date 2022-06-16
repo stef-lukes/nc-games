@@ -11,13 +11,26 @@ const SingleReview = () => {
   const { review_id } = useParams();
   const [singleReview, setSingleReview] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setError] = useState(null);
 
   useEffect(() => {
-    getReviewById(review_id).then((review) => {
-      setSingleReview(review);
-      setIsLoading(false);
-    });
+    getReviewById(review_id)
+      .then((review) => {
+        setSingleReview(review);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err.response.data);
+      });
   }, [review_id]);
+
+  if (isError)
+    return (
+      <>
+        <h2>Oops! Something went wrong...</h2>
+        <h3>{isError.msg}</h3>
+      </>
+    );
 
   if (isLoading) return <p className="loading">Loading...</p>;
 
