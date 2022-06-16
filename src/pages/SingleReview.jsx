@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getReviewById } from "../utils/api";
 import IncVotes from "../components/IncVotes";
+import Comments from "../components/Comments";
 
 import userIcon from "../assets/profile-icon.svg";
 import commentIcon from "../assets/comments-icon.svg";
@@ -35,42 +36,48 @@ const SingleReview = () => {
   if (isLoading) return <p className="loading">Loading...</p>;
 
   return (
-    <main className="single-rev">
-      <section className="single-rev-body">
-        <img src={singleReview.review_img_url} alt="" />
-        <h2>{singleReview.title}</h2>
-        <h3>
-          <span>Category:</span> {singleReview.category}
-        </h3>
+    <>
+      <main className="single-rev">
+        <div className="single-rev-body">
+          <img src={singleReview.review_img_url} alt="" />
+          <h2>{singleReview.title}</h2>
+          <h3>
+            <span>Category:</span> {singleReview.category}
+          </h3>
 
-        <h3>
-          <span>Designer:</span> {singleReview.designer}
-        </h3>
-        <div className="user-and-date">
+          <h3>
+            <span>Designer:</span> {singleReview.designer}
+          </h3>
+          <div className="user-and-date">
+            <div className="keyIcon-value">
+              <img src={userIcon} alt="" />
+              <h4>{singleReview.owner}</h4>
+            </div>
+            <div className="keyIcon-value">
+              <img className="w20" src={dateIcon} alt="" />
+              <h4>
+                {singleReview.created_at.slice(0, 10) +
+                  ` @ ${singleReview.created_at.slice(11, 16)}`}
+              </h4>
+            </div>
+          </div>
+          <p>{singleReview.review_body}</p>
+        </div>
+
+        <div className="single-rev-info">
           <div className="keyIcon-value">
-            <img src={userIcon} alt="" />
-            <h4>{singleReview.owner}</h4>
+            <IncVotes singleReview={singleReview} />
           </div>
           <div className="keyIcon-value">
-            <img className="w20" src={dateIcon} alt="" />
-            <h4>
-              {singleReview.created_at.slice(0, 10) +
-                ` @ ${singleReview.created_at.slice(11, 16)}`}
-            </h4>
+            <img src={commentIcon} alt="" />
+            <h4>{singleReview.comment_count}</h4>
           </div>
         </div>
-        <p>{singleReview.review_body}</p>
+      </main>
+      <section className="rev-comments">
+        <Comments review_id={singleReview.review_id} />
       </section>
-      <section className="single-rev-info">
-        <div className="keyIcon-value">
-          <IncVotes singleReview={singleReview} />
-        </div>
-        <div className="keyIcon-value">
-          <img src={commentIcon} alt="" />
-          <h4>{singleReview.comment_count}</h4>
-        </div>
-      </section>
-    </main>
+    </>
   );
 };
 

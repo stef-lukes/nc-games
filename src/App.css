@@ -365,3 +365,20 @@ header {
 .vote-btns > img:nth-child(3) {
   margin-left: 10px;
 }
+
+/* COMMENTS ============================== */
+
+.rev-comments {
+  margin: 50px auto;
+}
+.single-comment {
+  margin: 20px auto;
+}
+
+.single-comment div {
+  margin: 10px;
+}
+.single-comment h5 {
+  font-family: "Roboto";
+  font-weight: 400;
+}
